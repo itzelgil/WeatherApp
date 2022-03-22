@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card" style="width: 50rem">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <form id="searchForm">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                  type="text"
+                  class="searchbar"
+                  placeholder="Search for a City"
+                  id="city"
+                />
+                <input
+                  type="submit"
+                  value="Search"
+                  class="submitButton"
+                  title="Search"
+                />
+                <button id="locationButton">
+                  <i
+                    class="fa-solid fa-location-dot gps"
+                    title="Current location"
+                  >
+                  </i>
+                </button>
+              </form>
+            </div>
+          </div>
+          <br />
+          <br />
+          <div class="row">
+            <div class="col">
+              <span class="headerCity">
+                <h4 id="cityTypedName"></h4>
+              </span>
+            </div>
+            <div class="col"></div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <br />
+              <br />
+              <h1 class="weather-icon">⛅️</h1>
+              <h5 id="feelsLike"></h5>
+              <h3 id="description"></h3>
+
+              <span id="humidity"></span>
+              <br />
+              <br />
+            </div>
+
+            <div class="col">
+              <br />
+              <br />
+
+              <h1 id="currentDegrees">16º</h1>
+
+              <div class="temperatures">
+                <a href="#" id="celsius">C</a> |
+                <a href="#" id="fahrenheit">F</a>
+              </div>
+              <br />
+              <h4 id="currentDateTime"></h4>
+              <h6 id="currentTime"></h6>
+            </div>
+          </div>
+
+          <!-- SECOND PART -->
+          <!-- <hr class="line" />
+          <div class="row">
+            <div class="col">
+              <h5>Now</h5>
+              <h4>16ºC</h4>
+            </div>
+            <div class="col">
+              <h5>1 pm</h5>
+              <h4>16ºC</h4>
+            </div>
+            <div class="col">
+              <h5>2 pm</h5>
+              <h4>17ºC</h4>
+            </div>
+            <div class="col">
+              <h5>3 pm</h5>
+              <h4>15ºC</h4>
+            </div>
+            <div class="col">
+              <h5>4 pm</h5>
+              <h4>15ºC</h4>
+            </div>
+          </div>
+          <hr class="line" />
+          <br />
+          <br />
+          <div class="row row1">
+            <div class="col tue">
+              <h2>TUE</h2>
+            </div>
+            <div class="col">
+              <h2 class="emoji">☀️</h2>
+            </div>
+            <div class="col">
+              <h5>9ºC | 16ªC</h5>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <h2>WED</h2>
+            </div>
+            <div class="col">
+              <h2>🌦</h2>
+            </div>
+            <div class="col">
+              <h5>9ºC | 15ºC</h5>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <h2>THU</h2>
+            </div>
+            <div class="col">
+              <h2>⛈</h2>
+            </div>
+            <div class="col">
+              <h5>8ºC | 14ºC</h5>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <h2>FRI</h2>
+            </div>
+            <div class="col">
+              <h2>⛅️</h2>
+            </div>
+            <div class="col">
+              <h5>9ºC | 16ºC</h5>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <h2>SAT</h2>
+            </div>
+            <div class="col">
+              <h2>☁️</h2>
+            </div>
+            <div class="col">
+              <h5>7ºC | 13ºC</h5>
+            </div>
+          </div>
+         
+          <br />
+          <div class="row">
+            <div class="col signature">
+              <h5>Coded by Itzel Gil</h5>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a547194661.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

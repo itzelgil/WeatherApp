@@ -1,0 +1,98 @@
+.container {
+  text-align: center;
+  padding: 20%;
+  font-family: "Poppins", sans-serif;
+  display: block;
+}
+
+.card {
+  background: rgb(14, 139, 242);
+  background: linear-gradient(
+    0deg,
+    rgba(14, 139, 242, 0.5074404761904762) 18%,
+    rgba(251, 188, 44, 0.6783088235294117) 100%
+  );
+  color: white;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+  border: none;
+}
+.card-body {
+  border-radius: 10px;
+  border: none;
+}
+
+.submitButton {
+  background-color: rgba(132, 212, 236, 0.582);
+  border-radius: 5px;
+  border-color: rgb(0, 255, 255);
+
+  color: white;
+}
+
+.weather-icon {
+  font-size: 150px;
+}
+
+#city {
+  border-radius: 5px;
+  border: none;
+}
+
+.temperatures {
+  font-size: 25px;
+}
+#locationButton {
+  background-color: rgb(252, 195, 8);
+  border-radius: 5px;
+
+  border-color: rgb(211, 142, 96);
+}
+.gps {
+  font-size: 18px;
+  color: white;
+}
+.gps,
+#cityTypedName {
+  display: inline-block;
+}
+
+.line {
+  display: block;
+  border-width: 3px;
+  border-color: white;
+}
+
+.row1 {
+  border-color: white;
+}
+
+.signature {
+  position: relative;
+  left: 34%;
+}
+
+#card-weather {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* .name {
+  font-style: bold;
+} */
+#currentTime {
+  font-size: 22px;
+}
+#currentDegrees {
+  font-size: 100px;
+}
+
+#cityTypedName {
+  text-transform: uppercase;
+  font-size: 32px;
+  font-weight: bolder;
+}
