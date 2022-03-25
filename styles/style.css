@@ -1,5 +1,4 @@
 .container {
-  text-align: center;
   padding: 10%;
   font-family: "Poppins", sans-serif;
   display: block;
@@ -79,6 +78,7 @@
 
 .signature {
   position: relative;
+  left: 63%;
 }
 
 .units {
