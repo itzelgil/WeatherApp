@@ -101,9 +101,11 @@ function showTemperature(response) {
   } else if (iconChange === "Snow") {
     iconElementChange.innerHTML = "🌨";
   } else if (iconChange === "Thunderstorm") {
-    iconElementChange = "⛈";
+    iconElementChange.innerHTML = "⛈";
   } else if (iconChange === "Rain") {
-    iconElementChange = "🌧";
+    iconElementChange.innerHTML = "🌧 ";
+  } else {
+    iconElementChange = "🌤";
   }
   //WIND
   let windElement = Math.round(response.data.wind.speed);
