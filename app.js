@@ -55,8 +55,6 @@ function handleSubmit(event) {
   let city = document.querySelector("#city").value;
   searchCity(city);
 }
-let city = document.querySelector("#searchForm");
-city.addEventListener("submit", handleSubmit);
 
 function handlePosition(position) {
   let apiKey = "a58132974e1508fb139cd5dab2b170ec";
@@ -118,6 +116,9 @@ function showCelsius(event) {
 }
 
 let celsiusTemperature = null;
+
+let city = document.querySelector("#searchForm");
+city.addEventListener("submit", handleSubmit);
 
 let dateChange = document.querySelector("#currentDateTime");
 dateChange.innerHTML = formatDate(new Date());
