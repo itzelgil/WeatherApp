@@ -44,9 +44,6 @@ function formatDate() {
   return [formattedDate];
 }
 
-let dateChange = document.querySelector("#currentDateTime");
-dateChange.innerHTML = formatDate(new Date());
-
 function searchCity(city) {
   let apiKey = "a58132974e1508fb139cd5dab2b170ec";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -60,23 +57,6 @@ function handleSubmit(event) {
 }
 let city = document.querySelector("#searchForm");
 city.addEventListener("submit", handleSubmit);
-// function celsius(event) {
-//   event.preventDefault();
-//   let temperatureCelsius = document.querySelector("#currentDegrees");
-//   temperatureCelsius.innerHTML = 16 + "º";
-// }
-// let celsiusDegrees = document.querySelector("#celsius");
-// celsiusDegrees.addEventListener("click", celsius);
-
-// function fahrenheit(event) {
-//   event.preventDefault();
-//   let temperatureFahrenheit = document.querySelector("#currentDegrees");
-//   temperatureFahrenheit.innerHTML = 60.8 + "º";
-// }
-// let fahrenheitDegrees = document.querySelector("#fahrenheit");
-// fahrenheitDegrees.addEventListener("click", fahrenheit);
-
-//Function current Location
 
 function handlePosition(position) {
   let apiKey = "a58132974e1508fb139cd5dab2b170ec";
@@ -88,14 +68,13 @@ function getCurrentPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(handlePosition);
 }
-let currentLocationButton = document.querySelector("#locationButton");
-currentLocationButton.addEventListener("click", getCurrentPosition);
 
 function showTemperature(response) {
   //TEMPERATURE
-  let temperature = Math.round(response.data.main.temp);
+  // let temperature = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#currentDegrees");
-  currentTemp.innerHTML = `${temperature}ºC`;
+  celsiusTemperature = response.data.main.temp;
+  currentTemp.innerHTML = Math.round(celsiusTemperature);
   //CITY NAME
   let cityName = response.data.name;
   let currentCityName = document.querySelector("#cityTypedName");
@@ -113,4 +92,31 @@ function showTemperature(response) {
   let humidityPercent = document.querySelector("#humidity");
   humidityPercent.innerHTML = `Humidity: ${humidity}%`;
 }
+
+function showFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#currentDegrees");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function showCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#currentDegrees");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let dateChange = document.querySelector("#currentDateTime");
+dateChange.innerHTML = formatDate(new Date());
+
+let currentLocationButton = document.querySelector("#locationButton");
+currentLocationButton.addEventListener("click", getCurrentPosition);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", showCelsius);
 searchCity("Barcelona");

@@ -21,7 +21,7 @@
   border: none;
 }
 .card-body {
-  border-radius: 35px;
+  border-radius: 10px;
   border: none;
 }
 
@@ -81,14 +81,16 @@
   padding: 10px;
 }
 
-/* .name {
-  font-style: bold;
-} */
+.units {
+  position: relative;
+  font-size: 18px;
+  top: -50px;
+}
 #currentTime {
   font-size: 22px;
 }
 #currentDegrees {
-  font-size: 100px;
+  font-size: 110px;
 }
 
 #cityTypedName {
