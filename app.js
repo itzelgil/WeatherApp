@@ -60,6 +60,7 @@ function handlePosition(position) {
   let apiKey = "a58132974e1508fb139cd5dab2b170ec";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
+  let modifyLocation = document.querySelector("#cityTypedName");
 }
 
 function getCurrentPosition(event) {
@@ -99,9 +100,11 @@ function showTemperature(response) {
     iconElementChange.innerHTML = "⛅️";
   } else if (iconChange === "Snow") {
     iconElementChange.innerHTML = "🌨";
+  } else if (iconChange === "Thunderstorm") {
+    iconElementChange = "⛈";
+  } else if (iconChange === "Rain") {
+    iconElementChange = "🌧";
   }
-
-  console.log(iconElementChange);
   //WIND
   let windElement = Math.round(response.data.wind.speed);
   let windSpeed = document.querySelector("#wind");
@@ -120,19 +123,6 @@ function showCelsius(event) {
   let temperatureElement = document.querySelector("#currentDegrees");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-
-// function changeIcon() {
-//   let iconElementChange = document.querySelector("#icon");
-// let iconChange = response.data.weather[0].main;
-// if (iconChange === "Clear") {
-//   iconElementChange.innerHTML = "☀️";
-// } else if (iconChange === "Clouds") {
-//   iconElementChange.innerHTML = "⛅️";
-// } else if (iconChange === "Snow") {
-//   iconElementChange.innerHTML = "🌨";
-// }
-//   changeIcon(iconElementChange, response.data.weather[0].description);
-// }
 
 let celsiusTemperature = null;
 
