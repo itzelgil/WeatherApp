@@ -91,11 +91,11 @@ function showTemperature(response) {
   let humidityPercent = document.querySelector("#humidity");
   humidityPercent.innerHTML = `Humidity: ${humidity}%`;
   //ICON
-  let iconElement = document.querySelector("#icon");
-  iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
-  );
+  // let iconElement = document.querySelector("#icon");
+  // iconElement.setAttribute(
+  //   "src",
+  //   `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
+  // );
   //WIND
   let windElement = Math.round(response.data.wind.speed);
   let windSpeed = document.querySelector("#wind");
@@ -113,6 +113,19 @@ function showCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#currentDegrees");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function changeIcon() {
+  let iconElementChange = document.querySelector("#icon");
+  let iconChange = response.data.weather[0].main;
+  if (iconChange === "Clear") {
+    iconElementChange.innerHTML = "☀️";
+  } else if (iconChange === "Clouds") {
+    iconElementChange.innerHTML = "⛅️";
+  } else if (iconChange === "Snow") {
+    iconElementChange.innerHTML = "🌨";
+  }
+  changeIcon(iconElementChange, response.data.weather[0].description);
 }
 
 let celsiusTemperature = null;
