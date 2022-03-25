@@ -70,6 +70,7 @@ function getCurrentPosition(event) {
 }
 
 function showTemperature(response) {
+  console.log(response.data);
   //TEMPERATURE
   // let temperature = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#currentDegrees");
@@ -84,13 +85,23 @@ function showTemperature(response) {
   let feelsLike = document.querySelector("#feelsLike");
   feelsLike.innerHTML = `Feels like ${sensation} ºC`;
   //DESCRIPTION
-  let descriptionWeather = response.data.weather[0].main;
+  let descriptionWeather = response.data.weather[0].description;
   let weatherDescription = document.querySelector("#description");
   weatherDescription.innerHTML = `${descriptionWeather}`;
   //HUMIDITY
   let humidity = response.data.main.humidity;
   let humidityPercent = document.querySelector("#humidity");
   humidityPercent.innerHTML = `Humidity: ${humidity}%`;
+  //ICON
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
+  );
+  //WIND
+  let windElement = Math.round(response.data.wind.speed);
+  let windSpeed = document.querySelector("#wind");
+  windSpeed.innerHTML = `Wind speed: ${windElement} km/h`;
 }
 
 function showFahrenheit(event) {

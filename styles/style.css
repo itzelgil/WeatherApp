@@ -1,11 +1,12 @@
 .container {
   text-align: center;
-  padding: 20%;
+  padding: 10%;
   font-family: "Poppins", sans-serif;
   display: block;
 }
 
-.card {
+.weather-app-wrapper {
+  max-width: 750px;
   background: rgb(14, 139, 242);
   background: linear-gradient(
     0deg,
@@ -14,15 +15,12 @@
   );
   color: white;
   text-align: center;
-  display: block;
   margin: 0 auto;
-  float: none;
-  margin-bottom: 10px;
-  border: none;
-}
-.card-body {
   border-radius: 10px;
   border: none;
+}
+.form {
+  padding-top: 8px;
 }
 
 .submitButton {
@@ -35,6 +33,10 @@
 
 .weather-icon {
   font-size: 150px;
+}
+
+#description {
+  text-transform: capitalize;
 }
 
 #city {
@@ -51,6 +53,7 @@
 
   border-color: rgb(211, 142, 96);
 }
+
 .gps {
   font-size: 18px;
   color: white;
@@ -58,6 +61,10 @@
 .gps,
 #cityTypedName {
   display: inline-block;
+}
+
+#icon  {
+  font-size: larger;
 }
 
 .line {
@@ -90,7 +97,7 @@
   font-size: 22px;
 }
 #currentDegrees {
-  font-size: 110px;
+  font-size: 90px;
 }
 
 #cityTypedName {

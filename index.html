@@ -22,11 +22,11 @@
   </head>
   <body>
     <div class="container">
-      <div class="card" style="width: 50rem">
-        <div class="card-body">
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
           <div class="row">
             <div class="col">
-              <form id="searchForm">
+              <form id="searchForm" class="form">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input
                   type="text"
@@ -64,19 +64,25 @@
             <div class="col">
               <br />
               <br />
-              <h1 class="weather-icon">⛅️</h1>
+
+              <img
+                src="#"
+                alt=""
+                class=""
+                id="icon"
+                style="width: 90px; height: 90px"
+                ;
+              />
               <h5 id="feelsLike"></h5>
               <h3 id="description"></h3>
-
+              <br />
               <span id="humidity"></span>
+              <p id="wind"></p>
               <br />
               <br />
             </div>
 
             <div class="col">
-              <br />
-              <br />
-
               <strong id="currentDegrees"></strong
               ><span class="units">
                 <a href="#" id="celsius">ºC </a>|
