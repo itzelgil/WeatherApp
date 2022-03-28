@@ -44,6 +44,34 @@ function formatDate() {
   return [formattedDate];
 }
 
+//FORECAST
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = "";
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="row">
+        <div class="col">
+              <h2>${day}</h2>
+        </div>
+        <div class="col">
+            <h2 class="emoji">☀️</h2>
+        </div>
+        <div class="col">
+          <span class="weather-forecast-temp-max">9ºC</span>
+              |
+          <span class="weather-forecast-temp-min">16ºC</span>
+        </div>
+        </div>`;
+  });
+  forecastHTML = forecastHTML + "";
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function searchCity(city) {
   let apiKey = "a58132974e1508fb139cd5dab2b170ec";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -127,6 +155,7 @@ function showCelsius(event) {
 }
 
 let celsiusTemperature = null;
+displayForecast();
 
 let city = document.querySelector("#searchForm");
 city.addEventListener("submit", handleSubmit);
