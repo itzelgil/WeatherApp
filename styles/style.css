@@ -16,7 +16,7 @@
   text-align: center;
   margin: 0 auto;
   border-radius: 10px;
-  border: none;
+  border-color: black;
 }
 .form {
   padding-top: 8px;
@@ -44,8 +44,8 @@
 }
 #locationButton {
   background-color: #f9d173;
-  border-radius: 5px;
-
+  border-radius: 10px;
+  color: white;
   border-color: #d5cd9e;
 }
 

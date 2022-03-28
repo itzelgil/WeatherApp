@@ -42,7 +42,7 @@ function formatDate() {
   return [formattedDateTime];
 }
 
-//FORECAST
+//FORECAST PER DAYS
 
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
