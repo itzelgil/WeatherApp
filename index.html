@@ -25,6 +25,17 @@
       <div class="weather-app-wrapper">
         <div class="weather-app">
           <div class="row">
+            <div class="col"></div>
+          </div>
+          <br />
+          <br />
+          <div class="row">
+            <div class="col">
+              <span class="headerCity">
+                <h4 id="cityTypedName"></h4>
+              </span>
+              <h6 id="currentDateTime"></h6>
+            </div>
             <div class="col">
               <form id="searchForm" class="form">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -50,46 +61,32 @@
               </form>
             </div>
           </div>
-          <br />
-          <br />
           <div class="row">
             <div class="col">
-              <span class="headerCity">
-                <h4 id="cityTypedName"></h4>
-              </span>
-            </div>
-            <div class="col"></div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <!-- <img
-                src="#"
-                alt=""
-                class=""
-                id="icon"
-                style="width: 90px; height: 90px"
-                ;
-              /> -->
+              <br />
               <span id="icon"></span>
-              <h3 id="description"></h3>
               <h5 id="feelsLike"></h5>
               <br />
-              <span id="humidity"></span>
-              <p id="wind"></p>
-              <br />
-              <br />
             </div>
-
             <div class="col">
+              <br />
+              <br />
               <strong id="currentDegrees"></strong
               ><span class="units">
                 <a href="#" id="celsius">ºC </a>|
                 <a href="#" id="fahrenheit">ºF</a>
               </span>
-              <br />
-              <br />
-              <h4 id="currentDateTime"></h4>
-              <h6 id="currentTime"></h6>
+              <h3 id="description"></h3>
+              <div class="max-min-temp">
+                <span id="min-temp"> </span> <span id="max-temp"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col" id="humidity-wind">
+              <span id="humidity"></span>
+              <p id="wind"></p>
             </div>
           </div>
 

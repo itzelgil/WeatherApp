@@ -37,11 +37,9 @@ function formatDate() {
     "December",
   ];
   let monthName = months[now.getMonth()];
-  let currentHour = `${hours}:${minutes}`;
-  let formattedDate = `${dayName} <br /> ${monthName} ${date}, ${year}`;
-  let currentHours = document.querySelector("#currentTime");
-  currentHours.innerHTML = currentHour;
-  return [formattedDate];
+  let formattedDateTime = `${dayName} | ${monthName} ${date}, ${year} | ${hours}:${minutes}`;
+
+  return [formattedDateTime];
 }
 
 //FORECAST
@@ -88,7 +86,6 @@ function handlePosition(position) {
   let apiKey = "a58132974e1508fb139cd5dab2b170ec";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemperature);
-  let modifyLocation = document.querySelector("#cityTypedName");
 }
 
 function getCurrentPosition(event) {
@@ -111,6 +108,14 @@ function showTemperature(response) {
   let sensation = Math.round(response.data.main.feels_like);
   let feelsLike = document.querySelector("#feelsLike");
   feelsLike.innerHTML = `Feels like ${sensation} ºC`;
+  //MIN TEMP
+  let minTemp = Math.round(response.data.main.temp_min);
+  let tempMin = document.querySelector("#min-temp");
+  tempMin.innerHTML = `L: ${minTemp}º`;
+  //MAX TEMP
+  let maxTemp = Math.round(response.data.main.temp_max);
+  let tempMax = document.querySelector("#max-temp");
+  tempMax.innerHTML = `H: ${maxTemp}º`;
   //DESCRIPTION
   let descriptionWeather = response.data.weather[0].description;
   let weatherDescription = document.querySelector("#description");
@@ -153,6 +158,8 @@ function showCelsius(event) {
   let temperatureElement = document.querySelector("#currentDegrees");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
+
+//MIN-MAX TEMPERATURE
 
 let celsiusTemperature = null;
 displayForecast();

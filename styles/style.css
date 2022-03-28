@@ -25,13 +25,9 @@
 .submitButton {
   background-color: rgba(132, 212, 236, 0.582);
   border-radius: 5px;
-  border-color: rgb(0, 255, 255);
+  border-color: #d5cd9e;
 
   color: white;
-}
-
-.weather-icon {
-  font-size: 150px;
 }
 
 #description {
@@ -47,10 +43,10 @@
   font-size: 25px;
 }
 #locationButton {
-  background-color: rgb(252, 195, 8);
+  background-color: #f9d173;
   border-radius: 5px;
 
-  border-color: rgb(211, 142, 96);
+  border-color: #d5cd9e;
 }
 
 .gps {
@@ -60,10 +56,6 @@
 .gps,
 #cityTypedName {
   display: inline-block;
-}
-
-#icon  {
-  font-size: larger;
 }
 
 .line {
@@ -87,7 +79,9 @@
   top: -50px;
 }
 #currentTime {
-  font-size: 22px;
+  position: relative;
+  font-size: 24px;
+  top: 26px;
 }
 #currentDegrees {
   font-size: 90px;
@@ -99,9 +93,14 @@
   font-weight: bolder;
 }
 #icon {
-  font-size: 110px;
+  font-size: 130px;
 }
 
 .weather-forecast-temp-min {
   opacity: 0.6;
+}
+
+#humidity-wind {
+  position: relative;
+  top: 10px;
 }
