@@ -43,31 +43,52 @@ function formatDate() {
 }
 
 //FORECAST PER DAYS
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = "";
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="row">
         <div class="col">
-              <h2>${day}</h2>
+              <h5>${formatDay(forecastDay.dt)}</h5>
         </div>
         <div class="col">
             <h2 class="emoji">☀️</h2>
         </div>
         <div class="col">
-          <span class="weather-forecast-temp-max">9ºC</span>
+          <span class="weather-forecast-temp-max">${Math.round(
+            forecastDay.temp.max
+          )}º</span>
               |
-          <span class="weather-forecast-temp-min">16ºC</span>
+          <span class="weather-forecast-temp-min">${Math.round(
+            forecastDay.temp.min
+          )}º</span>
         </div>
         </div>`;
+    }
   });
   forecastHTML = forecastHTML + "";
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "a58132974e1508fb139cd5dab2b170ec";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function searchCity(city) {
@@ -144,6 +165,8 @@ function showTemperature(response) {
   let windElement = Math.round(response.data.wind.speed);
   let windSpeed = document.querySelector("#wind");
   windSpeed.innerHTML = `Wind speed: ${windElement} km/h`;
+
+  getForecast(response.data.coord);
 }
 
 function showFahrenheit(event) {
@@ -162,7 +185,6 @@ function showCelsius(event) {
 //MIN-MAX TEMPERATURE
 
 let celsiusTemperature = null;
-displayForecast();
 
 let city = document.querySelector("#searchForm");
 city.addEventListener("submit", handleSubmit);
