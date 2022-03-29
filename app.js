@@ -42,6 +42,16 @@ function formatDate() {
   return [formattedDateTime];
 }
 
+//FORECAST PER HOUR
+
+// function formatHour(timestamp){
+// let hours = new Date().getTime();
+// }
+
+// function displayForecastByHour(response){
+
+// }
+
 //FORECAST PER DAYS
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -58,6 +68,18 @@ function displayForecast(response) {
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
+      let forecastIconChangeHTML = "";
+      if (forecastDay.weather[0].main === "Clear") {
+        forecastIconChangeHTML = "☀️";
+      } else if (forecastDay.weather[0].main === "Clouds") {
+        forecastIconChangeHTML = "⛅️";
+      } else if (forecastDay.weather[0].main === "Snow") {
+        forecastIconChangeHTML = "🌨";
+      } else if (forecastDay.weather[0].main === "Thunderstorm") {
+        forecastIconChangeHTML = "⛈";
+      } else if (forecastDay.weather[0].main === "Rain") {
+        forecastIconChangeHTML = "🌧";
+      }
       forecastHTML =
         forecastHTML +
         `
@@ -66,7 +88,7 @@ function displayForecast(response) {
               <h5>${formatDay(forecastDay.dt)}</h5>
         </div>
         <div class="col">
-            <h2 class="emoji">☀️</h2>
+            <h2 class="emoji">${forecastIconChangeHTML}</h2>
         </div>
         <div class="col">
           <span class="weather-forecast-temp-max">${Math.round(
@@ -90,6 +112,13 @@ function getForecast(coordinates) {
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
+
+// function getForecastByHour(coordinates){
+//   let apiKey = "a58132974e1508fb139cd5dab2b170ec";
+//   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=${apiKey}`;
+//   console.log(apiUrl);
+//   axios.get(apiUrl).then(displayForecastByHour);
+// }
 
 function searchCity(city) {
   let apiKey = "a58132974e1508fb139cd5dab2b170ec";
