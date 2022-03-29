@@ -196,6 +196,19 @@ function showTemperature(response) {
   getForecast(response.data.coord);
 }
 
+// function showFahrenheit(event) {
+//   event.preventDefault();
+//   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+//   let temperatureElement = document.querySelector("#currentDegrees");
+//   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+// }
+
+// function showCelsius(event) {
+//   event.preventDefault();
+//   let temperatureElement = document.querySelector("#currentDegrees");
+//   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+// }
+
 //MIN-MAX TEMPERATURE
 
 let celsiusTemperature = null;
@@ -208,5 +221,10 @@ dateChange.innerHTML = formatDate(new Date());
 
 let currentLocationButton = document.querySelector("#locationButton");
 currentLocationButton.addEventListener("click", getCurrentPosition);
+//Celsius to Fahrenheit conversion
+// let fahrenheitLink = document.querySelector("#fahrenheit");
+// fahrenheitLink.addEventListener("click", showFahrenheit);
 
+// let celsiusLink = document.querySelector("#celsius");
+// celsiusLink.addEventListener("click", showCelsius);
 searchCity("Barcelona");
